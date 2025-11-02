@@ -1,0 +1,128 @@
+{
+  "info": {
+    "name": "SSP API (SQLite Local)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Application (multipart)",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{BASE}}/api/applications/create",
+          "host": [
+            "{{BASE}}"
+          ],
+          "path": [
+            "api",
+            "applications",
+            "create"
+          ]
+        },
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "value": "John Doe",
+              "type": "text"
+            },
+            {
+              "key": "email",
+              "value": "john@example.com",
+              "type": "text"
+            },
+            {
+              "key": "phone",
+              "value": "+97150000000",
+              "type": "text"
+            },
+            {
+              "key": "form_json",
+              "value": "{\"income_level\": \"low\", \"employment_history\": \"unstable\", \"family_size\": \"4\", \"wealth\": \"low\", \"demographic_profile\": \"at_risk\"}",
+              "type": "text"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Assess",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{BASE}}/api/assess",
+          "host": [
+            "{{BASE}}"
+          ],
+          "path": [
+            "api",
+            "assess"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"application_id\": 1}"
+        }
+      }
+    },
+    {
+      "name": "Recommend",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{BASE}}/api/recommend",
+          "host": [
+            "{{BASE}}"
+          ],
+          "path": [
+            "api",
+            "recommend"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"application_id\": 1}"
+        }
+      }
+    },
+    {
+      "name": "Chat",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{BASE}}/api/chat",
+          "host": [
+            "{{BASE}}"
+          ],
+          "path": [
+            "api",
+            "chat"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"application_id\": 1, \"message\":\"What is my status?\"}"
+        }
+      }
+    }
+  ]
+}
